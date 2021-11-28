@@ -1,6 +1,6 @@
 from django.shortcuts import render
+from . models import (Notes)
 
-# Create your views here.
-
-def index(request):
-    pass
+def all_note(request):
+    notes = Notes.objects.all()
+    return render(request, "notes/all_note.html", {"notes":notes})
