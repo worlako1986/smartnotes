@@ -1,16 +1,20 @@
 from django.shortcuts import render
 from django.http import Http404
+from django.views.generic.detail import DetailView
 from . models import (Notes)
-
-def all_note(request):
-    notes = Notes.objects.all()
-    return render(request, "notes/all_note.html", {"notes":notes})
+from django.views.generic import (ListView, DetailView)
 
 
-def detail(request, pk):
-    try:
-        note = Notes.objects.get(pk = pk)
-    except Exception as e:
-        raise Http404
-    else:
-        return render(request, "notes/note_detail.html", {"note": note})
+class AllNoteView(ListView):
+    model = Notes
+    context_object_name = "notes"
+    template_name = "notes/all_note.html"
+
+
+
+class NoteDetailView(DetailView):
+    model = Notes
+    context_object_name = "note"
+    template_name = "notes/note_detail.html"
+
+    

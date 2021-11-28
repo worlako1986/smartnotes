@@ -3,6 +3,6 @@ from . import views
 
 app_name = "notes"
 urlpatterns  = [
-    path("notes", views.all_note, name= "all_note" ),
-    path("notes/<int:pk>", views.detail, name= "detail")
+    path("notes", views.AllNoteView.as_view(), name= "all_note" ),
+    path("notes/<int:pk>", views.NoteDetailView.as_view(), name= "detail")
 ]
