@@ -5,9 +5,15 @@
         <title>Note Detail!</title>
     </head>
     <body>
-        <h1>Details:</h1>
-        <p>Title: {{note.title}}</p>
-        <p>Content: {{note.content}}</p>
-        <p>Created At: {{note.created_at}}</p>
+        <div>
+            <h1>Details:</h1>
+            <p>Title: {{note.title}}</p>
+            <p>Content: {{note.content}}</p>
+            <p>Created At: {{note.created_at}}</p>
+        </div>
+        <div>
+            <a href="{% url 'notes:all_note' %}">View All Notes</a>
+        </div>
+
     </body>
 </html>

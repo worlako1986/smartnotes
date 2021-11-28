@@ -10,7 +10,7 @@
 
         <ul>
             {% for note in notes %}
-                <li>Title: {{note.title}},  Content: {{note.content}}</li>
+                <li><span><a href="{% url 'notes:detail' note.note_id %}">Title: {{note.title}}</a></span>,  Content: {{note.content}}</li>
             {% empty %}
                 <p>No note found</p>
             {%  endfor %}
